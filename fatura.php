@@ -79,8 +79,8 @@ $fgfgg = $rowass['sum'];
 		<div id="content-wrap">
 			<div class="content" id="content" style="width: 870px; margin: 10px auto;">
 				<div style="text-align: center;">
-					<img src="images/baresha.png" width="150"><br>
-					TEL. : +383 (049) 605 655<br>
+					<img src="images/logob.png" width="150"><br>
+					<p> Numri i telefonit : +383 (049) 605 655</p><br>
 
 					<br><br><br>
 				</div>
