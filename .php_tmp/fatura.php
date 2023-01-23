@@ -1,10 +1,10 @@
 <?php
 include 'conn-d.php';
 $id = $_GET['invoice'];
-$resultas = $conn->query("SELECT SUM(`totali`) as `sum` FROM `shitje2` WHERE fatura='$id'");
+$resultas = $conn->query("SELECT SUM(`totali`) as `sum` FROM `shitje` WHERE fatura='$id'");
 $rowas = mysqli_fetch_array($resultas);
 $fgfg = $rowas['sum'];
-$resultas = $conn->query("SELECT SUM(`mbetja`) as `sum` FROM `shitje2` WHERE fatura='$id'");
+$resultas = $conn->query("SELECT SUM(`mbetja`) as `sum` FROM `shitje` WHERE fatura='$id'");
 $rowass = mysqli_fetch_array($resultas);
 $fgfgg = $rowass['sum'];
 
@@ -85,32 +85,33 @@ $fgfgg = $rowass['sum'];
 					<br><br><br>
 				</div>
 				<?php
-				$gin = $conn->query("SELECT * FROM fatura2 WHERE fatura='$id'");
+				$gin = $conn->query("SELECT * FROM fatura WHERE fatura='$id'");
 				$ginfo = mysqli_fetch_array($gin);
 				$stafi =  $ginfo['emri'];
 				$gstai = $conn->query("SELECT * FROM klientet WHERE id='$stafi'");
 				$gstai2 = mysqli_fetch_array($gstai);
 				?>
-				<div style="float: left;width: 520px;margin-right: 30px; background: #f2f2f2; padding:5px;">
-					<span style="display: inline-block;width: 150px;text-align: right;padding-right: 20px;margin-bottom: 10px;font-weight: bold;width: 75px;">Fatura p&euml;r: </span> &nbsp;&nbsp;&nbsp; <?php echo $gstai2['emri']; ?><br>
+				<div style="float: left;width: 420px;margin-right: 30px; background: #f2f2f2; padding:5px; border-right:solid 1px #000000">
+					<span style="display: inline-block;width: 150px;text-align: left;padding-right: 20px;margin-bottom: 10px;font-weight: bold;width: 150px;">Fatura p&euml;r: </span> &nbsp;&nbsp;&nbsp; <?php echo $gstai2['emri']; ?><br>
 
-					<span style="display: inline-block;width: 150px;text-align: right;padding-right: 20px;margin-bottom: 10px;font-weight: bold;width: 75px;">Adresa :</span>&nbsp;&nbsp;&nbsp; <?php echo $gstai2['adresa']; ?><br>
+					<span style="display: inline-block;width: 150px;text-align: left;padding-right: 20px;margin-bottom: 10px;font-weight: bold;width: 150px;">Adresa :</span>&nbsp;&nbsp;&nbsp; <?php echo $gstai2['adresa']; ?><br>
 
 
-					<span style="display: inline-block;width: 150px;text-align: right;padding-right: 20px;margin-bottom: 10px;font-weight: bold;width: 75px;">Fatura :</span>&nbsp;&nbsp;&nbsp; <?php echo $_GET['invoice']; ?>
+					<span style="display: inline-block;width: 150px;text-align: left;padding-right: 20px;margin-bottom: 10px;font-weight: bold;width: 150px;">Fatura :</span>&nbsp;&nbsp;&nbsp; <?php echo $_GET['invoice']; ?>
 
 
 				</div>
 
 
 				<div style="float: right;width: 300px; margin-bottom: 20px; background: #f2f2f2; padding:5px;">
+
 					<span style="font-weight: bold; text-align: left; margin-bottom: 10px; display: inline-block;">Data :</span><span style="float: right;"><?php echo date("d/m/Y"); ?></span><br>
 
-					<span style="font-weight: bold; text-align: left; margin-bottom: 10px; display: inline-block; border-bottom: ">Mbetja :</span><span style="float: right;"> <?php echo $fgfgg; ?>&euro;</span>
+					<span style="font-weight: bold; text-align: left; margin-bottom: 10px; display: inline-block;">Mbetja :</span><span style="float: right;"> <?php echo $fgfgg; ?>&euro;</span>
 
 					<br>
 
-					<div style="border-bottom: 2px solid black;"><span style="font-weight: bold; text-align: left; margin-bottom: 10px; display: inline-block; border-bottom: ">Vlera p&euml;r pages :</span><span style="float: right;"> <?php echo $fgfg; ?>&euro;</span>
+					<div style="border-bottom: 2px solid black;"><span style="font-weight: bold; text-align: left; margin-bottom: 10px; display: inline-block;">Vlera p&euml;r pages :</span><span style="float: right;"> <?php echo $fgfg; ?>&euro;</span>
 
 					</div><br>
 
@@ -133,7 +134,7 @@ $fgfgg = $rowass['sum'];
 					</tr>
 					<?php
 					$rendori = 1;
-					$result = $conn->query("SELECT * FROM shitje2 WHERE fatura='$id'");
+					$result = $conn->query("SELECT * FROM shitje WHERE fatura='$id'");
 					for ($i = 0; $row = $result->fetch_array(); $i++) {
 
 					?>
@@ -168,7 +169,7 @@ $fgfgg = $rowass['sum'];
 
 							<?php
 
-							$resultatvsh = $conn->query("SELECT sum(totali) FROM shitje2 WHERE fatura='$id'");
+							$resultatvsh = $conn->query("SELECT sum(totali) FROM shitje WHERE fatura='$id'");
 
 							for ($i = 0; $rowatvsh = $resultatvsh->fetch_array(); $i++) {
 								$ttvsh = $rowatvsh['sum(totali)'];
@@ -222,7 +223,7 @@ $fgfgg = $rowass['sum'];
 		</div>
 		<center>Pagesat:<br>
 			<?php
-			$shpagesat = $conn->query("SELECT * FROM pagesat2 WHERE fatura='$id'");
+			$shpagesat = $conn->query("SELECT * FROM pagesat WHERE fatura='$id'");
 			while ($gpa = mysqli_fetch_array($shpagesat)) {
 				echo '<b>M&euml;nyrat e pages&euml;s:</b> ' . $gpa['menyra'] . '<br>
 					<b>P&euml;rshkrimmi:</b>' . $gpa['pershkrimi'] . '<br>
