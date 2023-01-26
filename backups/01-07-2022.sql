@@ -22,6 +22,7 @@ INSERT INTO ads VALUES("15","bareshanetworkoffice3@gmail.com","8244857936707900 
 
 
 
+
 CREATE TABLE `draft` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `emri` varchar(255) NOT NULL,
