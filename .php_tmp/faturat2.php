@@ -181,8 +181,6 @@ if (isset($_POST["submit_file"])) {
 
                   </table>
                 </div>
-                <button class="btn btn-primary" id="print-button">Print Table</button>
-
               </div>
             </div>
           </div>
@@ -225,7 +223,21 @@ if (isset($_POST["submit_file"])) {
       text: '<i class="fi fi-rr-print fa-lg"></i>&nbsp;&nbsp; Printo',
       titleAttr: 'Printo tabelën',
       className: 'btn btn-light border shadow-2 me-2'
-    }, ],
+    }, {
+      text: 'Print',
+      action: function(e, dt, node, config) {
+        var data = dt.data();
+        var jsonData = JSON.stringify(data, function(key, val) {
+          if (key == '_buttons' || key == 'context') {
+            return undefined;
+          }
+          return val;
+        });
+
+        window.location.href = "newPage.php?data=" + jsonData;
+
+      }
+    }],
     initComplete: function() {
       var btns = $('.dt-buttons');
       btns.addClass('');
