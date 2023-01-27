@@ -181,6 +181,8 @@ if (isset($_POST["submit_file"])) {
 
                   </table>
                 </div>
+                <button class="btn btn-primary" id="print-button">Print Table</button>
+
               </div>
             </div>
           </div>
@@ -236,7 +238,4 @@ if (isset($_POST["submit_file"])) {
     },
 
   })
-
-
-  
 </script>

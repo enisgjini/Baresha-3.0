@@ -74,7 +74,7 @@ if (isset($_POST["submit_file"])) {
         </div>
 
 
-        <div class="card my-2 py-5 px-3">
+        <div class="card my-2 py-5 px-3 mb-4">
           <div class="form-group row">
             <div class="col">
               <form method="POST">
@@ -181,6 +181,8 @@ if (isset($_POST["submit_file"])) {
 
                   </table>
                 </div>
+                <button class="btn btn-primary" id="print-button">Print Table</button>
+
               </div>
             </div>
           </div>
@@ -236,7 +238,4 @@ if (isset($_POST["submit_file"])) {
     },
 
   })
-
-
-  
 </script>
