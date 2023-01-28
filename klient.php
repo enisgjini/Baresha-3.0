@@ -142,6 +142,12 @@ if (isset($_POST['ruaj'])) {
           </nav>
           <!-- Breadcrumb -->
         </div>
+
+
+
+
+
+
         <div class="card">
           <div class="card-body">
             <div class="row">
@@ -448,7 +454,7 @@ if (isset($_POST['ruaj'])) {
       text: '<i class="fi fi-rr-user-add fa-lg"></i>&nbsp;&nbsp; Shto klientë',
       className: 'btn btn-light border shadow-2 me-2',
       action: function(e, node, config) {
-        $('#shtoKlient').modal('show')
+        window.location.href = 'shtok.php';
       }
     }, ],
     initComplete: function() {
