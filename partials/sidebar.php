@@ -140,5 +140,11 @@
         <span class="menu-title">Chat GPT</span>
       </a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link" href="dataYT.php">
+        <i class="fi fi-rr-dashboard menu-icon pe-3"></i>
+        <span class="menu-title">Statistikat nga YouTube</span>
+      </a>
+    </li>
   </ul>
 </nav>
