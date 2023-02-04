@@ -112,7 +112,7 @@ $mes2 = mysqli_num_rows($mes);
   <link rel="shortcut icon" href="images/favicon.png" />
   <script type="text/javascript" src="../datatables/datatables.min.js"></script>
   <link href="mdb5/css/mdb.min.css" rel="stylesheet" />
-
+  <script src="https://code.highcharts.com/highcharts.js"></script>
   <style>
     .alert {
       display: none;

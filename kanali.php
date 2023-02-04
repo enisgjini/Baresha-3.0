@@ -1,4 +1,4 @@
-<?php include 'header.php'; ?>
+<?php include 'partials/header.php'; ?>
 
 
 <!-- Begin Page Content -->
@@ -97,4 +97,4 @@
       </div>
       <!-- End of Main Content -->
 
-      <?php include 'footer.php'; ?>
+      <?php include 'partials/footer.php'; ?>

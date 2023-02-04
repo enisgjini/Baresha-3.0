@@ -1,5 +1,5 @@
 <?php
-include 'header.php';
+include 'partials/header.php';
 ?>
 <div class="container-fluid page-body-wrapper">
   <div class="main-panel">
@@ -47,4 +47,4 @@ include 'header.php';
     </div>
   </div>
 </div>
-<?php include 'footer.php'; ?>
+<?php include 'partials/footer.php'; ?>
