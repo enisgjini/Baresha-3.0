@@ -134,7 +134,7 @@ $mes2 = mysqli_num_rows($mes);
     <!-- Navbar -->
     <?php include "partials/navbar.php" ?>
 
-    <div class="container-fluid page-body-wrapper">
+    <div class="container-fluid page-body-wrapper" id="sss">
       <?php include "partials/sidebar.php" ?>
 
       <?php // include "akseset/kryesor.php" 
