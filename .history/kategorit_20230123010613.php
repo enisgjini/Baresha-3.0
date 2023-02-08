@@ -206,7 +206,7 @@ if (isset($_GET['delete'])) {
   const searchInput = document.getElementById("search-input");
   const searchResult = document.getElementById("search-result");
   let currentIndex = 0;
-  const apiKey = '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';
+  const apiKey = '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';
 
   function type() {
     if (currentIndex < response.length && isRunning) {
