@@ -13,6 +13,7 @@ if (isset($_GET['mbaro'])) {
 }
 ?>
 
+<script src="https://apis.google.com/js/api.js"></script>
 
 <!-- Modal -->
 <div class="modal fade" id="shtochannel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -62,7 +63,7 @@ if (isset($_GET['mbaro'])) {
           <div class="row">
             <div class="col-12">
               <div class="table-responsive">
-                <table id="example" class="table w-full responsive">
+                <table id="example" class="table w-100 responsive">
                   <thead>
                     <tr>
                       <th>Emertimi</th>
@@ -94,6 +95,7 @@ if (isset($_GET['mbaro'])) {
                             echo $statusi; ?></td>
                       </tr>
                     <?php } ?>
+
                   </tbody>
                   <tfoot>
                     <tr>
@@ -110,6 +112,7 @@ if (isset($_GET['mbaro'])) {
         </div>
       </div>
     </div>
+    
   </div>
 </div>
 <?php include 'partials/footer.php'; ?>
@@ -121,7 +124,7 @@ if (isset($_GET['mbaro'])) {
     },
     dom: 'Bfrtip',
     buttons: [{
-      text: '<i class="fi fi-rr-ballot fa-lg"></i>&nbsp;&nbsp; Shto nje kategori',
+      text: '<i class="fi fi-rr-ballot fa-lg"></i>&nbsp;&nbsp; Shto nje takim',
       className: 'btn btn-light border shadow-2 me-2',
       action: function(e, node, config) {
         $('#shtochannel').modal('show')
