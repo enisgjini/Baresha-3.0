@@ -20,12 +20,7 @@
           <input type="text" class="form-control" placeholder="Search now" aria-label="search" aria-describedby="search">
         </div>
       </li>
-      <li>
-        <button id="button-id" class="btn btn-light"><i class="fi fi-rr-brightness" id="icon-id"></i></button>
-      </li>
-      <li>
-        <button class="btn btn-primary" id="skinToggler">Toggle skin</button>
-      </li>
+
     </ul>
     <ul class="navbar-nav navbar-nav-right">
       <li class="nav-item dropdown me-1">
@@ -141,37 +136,3 @@
     </button>
   </div>
 </nav>
-
-
-<script>
-  window.onload = function() {
-    const button = document.getElementById('button-id');
-    const icon = document.getElementById('icon-id');
-    const otherElement = document.getElementById('sss');
-
-    let isDarkMode = false;
-
-    button.addEventListener('click', function() {
-      if (isDarkMode) {
-
-        icon.classList.remove('fi-rr-moon');
-        icon.classList.add('fi-rr-brightness');
-        otherElement.style.backgroundColor = 'white';
-        otherElement.classList.remove("text-warning");
-        otherElement.classList.add("text-dark");
-      } else {
-
-        icon.classList.remove('fi-rr-brightness');
-        icon.classList.add('fi-rr-moon');
-        otherElement.style.color = 'white';
-        otherElement.style.backgroundColor = 'black';
-        otherElement.classList.remove("text-dark");
-        otherElement.classList.add("text-warning");
-      }
-
-      isDarkMode = !isDarkMode;
-    });
-  };
-
-  
-</script>
