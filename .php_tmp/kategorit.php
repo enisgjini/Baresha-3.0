@@ -85,12 +85,12 @@ if (isset($_GET['delete'])) {
       <div class="container">
 
         <div class="p-5 bg-light mb-4 card">
-          <h4 class="font-weight-bold text-gray-800 mb-4">Lista e klientëve tjerë</h4>
+          <h4 class="font-weight-bold text-gray-800 mb-4">Lista e kategorive</h4>
           <nav class="d-flex">
             <h6 class="mb-0">
               <a href="" class="text-reset">Klientët</a>
               <span>/</span>
-              <a href="klient.php" class="text-reset" data-bs-placement="top" data-bs-toggle="tooltip" title="<?php echo __FILE__; ?>"><u>Lista e klientëve</u></a>
+              <a href="klient.php" class="text-reset" data-bs-placement="top" data-bs-toggle="tooltip" title="<?php echo __FILE__; ?>"><u>Lista e kategorive</u></a>
             </h6>
           </nav>
         </div>
