@@ -23,6 +23,13 @@
         </a>
       </li>
 
+      <li class="nav-item">
+        <a class="nav-link" href="stafi.php">
+          <i class="fi fi-rr-users-alt menu-icon pe-3"></i>
+          <span class="menu-title">Stafi</span>
+        </a>
+      </li>
+
     <?php } ?>
 
     <li class="nav-item">
