@@ -131,7 +131,7 @@ if (isset($_POST['ruaj'])) {
     <div class="container-fluid">
       <div class="container">
 
-        <div class="p-5 bg-light mb-4 card">
+        <div class="p-5 bg-light card">
           <h4 class="font-weight-bold text-gray-800 mb-4">Lista e klientëve</h4> <!-- Breadcrumb -->
           <nav class="d-flex">
             <h6 class="mb-0">
@@ -143,7 +143,89 @@ if (isset($_POST['ruaj'])) {
           <!-- Breadcrumb -->
         </div>
 
+        <div class="row my-5 text-center">
+          <div class="col">
+            <div class="card p-5 ">
+              <?php
+              $kueri = $conn->query("SELECT COUNT(monetizuar) FROM klientet");
+              $result = $kueri->fetch_assoc();
+              ?>
+              <i class="fi fi-rr-user fa-2x"></i>
+              <br>
+              <p>Numri total i klientëve </p>
+              <h1><?php echo $result["COUNT(monetizuar)"]; ?></h1>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card p-5">
+              <?php
+              $kueri = $conn->query("SELECT COUNT(monetizuar) FROM klientet where monetizuar = 'PO'");
+              $result = $kueri->fetch_assoc();
+              ?>
+              <i class="fi fi-rr-dollar fa-2x"></i>
+              <br>
+              <p>Numri i klientëve te monetizuar </p>
+              <h1><?php echo $result["COUNT(monetizuar)"]; ?></h1>
 
+              <!-- Button trigger modal -->
+              <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Launch demo modal
+              </button> -->
+
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <?php
+
+                      $kueri = $conn->query("SELECT * FROM klientet where monetizuar = 'PO'");
+                      ?>
+                      <p>Monetized Clients:</p>
+                      <table class="table table-bordered">
+                        <thead class="bg-dark text-light">
+                          <tr>
+                            <th>Emri dhe mbiemriX</th>
+                            <th>Statusi</th>
+                          </tr>
+                        </thead>
+                        <?php while ($result = $kueri->fetch_assoc()) : ?><tbody>
+                            <tr>
+                              <td><?php echo $result["emri"]; ?></td>
+                              <td><?php echo $result["monetizuar"]; ?></td>
+                            </tr>
+                          <?php endwhile; ?>
+                          </tbody>
+                      </table>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card p-5 ">
+              <?php
+              $kueri = $conn->query("SELECT COUNT(monetizuar) FROM klientet where monetizuar = 'JO'");
+              $result = $kueri->fetch_assoc();
+              ?>
+              <del><i class="fi fi-rr-dollar fa-2x"></i></del>
+              <br>
+              <p>Numri i klientëve te pa-monetizuar </p>
+              <h1><?php echo $result["COUNT(monetizuar)"]; ?></h1>
+            </div>
+          </div>
+
+        </div>
 
 
 
@@ -153,8 +235,8 @@ if (isset($_POST['ruaj'])) {
             <div class="row">
               <div class="col-12">
                 <div class="table-responsive">
-                  <table id="example" class="table table-hover table-light border w-100">
-                    <thead>
+                  <table id="example" class="table w-100">
+                    <thead class="bg-light">
                       <tr>
                         <th>Emri & Mbiemri</th>
                         <th>Emri Artistik</th>
@@ -164,7 +246,6 @@ if (isset($_POST['ruaj'])) {
                         <th></th>
                       </tr>
                     </thead>
-
                     <tbody>
                       <?php
                       $kueri = $conn->query("SELECT * FROM klientet ORDER BY id DESC");
@@ -195,18 +276,10 @@ if (isset($_POST['ruaj'])) {
                           <?php echo $moni; ?>
                           <td>
                             <a class="btn btn-success py-2" href="editk.php?id=<?php echo $k['id']; ?>"><i class="fi fi-rr-edit"></i></a>
-
-
-
-
                             <a class="btn btn-primary py-2" data-bs-toggle="modal" data-bs-target="#pass<?php echo $k['id']; ?>"><i class="fi fi-rr-lock"></i></a>
-
                             <a class="btn btn-danger py-2" href="klient.php?blocked=<?php echo $k['id']; ?>&block=<?php echo $blockii; ?>"><i class="fi fi-rr-ban"></i></a>
-
-
                           </td>
                         </tr>
-                        <!-- Modal -->
                         <div class="modal fade" id="pass<?php echo $k['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                           <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -230,9 +303,7 @@ if (isset($_POST['ruaj'])) {
                             </div>
                           </div>
                         </div>
-
                       <?php } ?>
-
                     </tbody>
                   </table>
                 </div>
@@ -244,9 +315,6 @@ if (isset($_POST['ruaj'])) {
     </div>
   </div>
 </div>
-<!-- End of Main Content -->
-
-<!-- Modal -->
 <div class="modal fade" id="shtoKlient" tabindex="-1" aria-labelledby="shtoKlient" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -467,6 +535,6 @@ if (isset($_POST['ruaj'])) {
     language: {
       url: "https://cdn.datatables.net/plug-ins/1.13.1/i18n/sq.json",
     },
-
+    stripeClasses: ['stripe-color']
   })
 </script>

@@ -15,9 +15,6 @@ if (isset($_GET['mbaro'])) {
 
 <script src="https://apis.google.com/js/api.js"></script>
 
-<script src="https://source.zoom.us/1.7.7/lib/zoom-meeting-1.7.7.min.js"></script>
-
-
 
 <!-- Modal -->
 <div class="modal fade" id="shtochannel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -50,7 +47,6 @@ if (isset($_GET['mbaro'])) {
     </div>
   </div>
 </div>
-
 <div class="main-panel">
   <div class="content-wrapper">
     <div class="container">
@@ -67,8 +63,8 @@ if (isset($_GET['mbaro'])) {
           <div class="row">
             <div class="col-12">
               <div class="table-responsive">
-                <table id="example" class="table w-100 responsive">
-                  <thead>
+                <table id="example" class="table w-100">
+                  <thead class="bg-light">
                     <tr>
                       <th>Emertimi</th>
                       <th>Pershkrimi</th>
@@ -99,7 +95,6 @@ if (isset($_GET['mbaro'])) {
                             echo $statusi; ?></td>
                       </tr>
                     <?php } ?>
-
                   </tbody>
                   <tfoot>
                     <tr>
@@ -116,57 +111,6 @@ if (isset($_GET['mbaro'])) {
         </div>
       </div>
     </div>
-    <div id="zoom-container"></div>
-
-    <script>
-      // var ZoomMtg = require('zoomus-js-sdk');
-
-      // set the zoom library source
-      ZoomMtg.setZoomJSLib('https://source.zoom.us/1.7.7/lib', '/av');
-
-      // preload the Zoom Web Assembly module
-      ZoomMtg.preLoadWasm();
-
-      // initialize the Zoom JavaScript SDK
-      ZoomMtg.prepareJssdk();
-
-      // your Zoom API Key and Secret
-      var API_KEY = 'jO7pa3XeSNCrIJz8TCeNqg';
-      var API_SECRET = 'aAJvbSKhEf1YIbpTgS6a8jeGYtwpSp45Efwe';
-
-      // the meeting number for the Zoom meeting
-      var meetingNumber = '5072429351';
-
-      // the role of the participant in the meeting
-      var role = 0; // 0 for participant, 1 for host
-
-      // generate the signature to join the Zoom meeting
-      ZoomMtg.generateSignature({
-        meetingNumber: meetingNumber,
-        apiKey: API_KEY,
-        apiSecret: API_SECRET,
-        role: role,
-        success: function(res) {
-          console.log('signature generated: ', res.result);
-
-          // join the Zoom meeting
-          ZoomMtg.join({
-            meetingNumber: meetingNumber,
-            userName: 'Your Name',
-            signature: res.result,
-            apiKey: API_KEY,
-            userEmail: 'your-email@example.com',
-            passWord: 'meeting-password',
-            success: function(res) {
-              console.log('join meeting success: ', res);
-            },
-            error: function(res) {
-              console.error('join meeting error: ', res);
-            }
-          });
-        }
-      });
-    </script>
   </div>
 </div>
 <?php include 'partials/footer.php'; ?>
@@ -194,6 +138,6 @@ if (isset($_GET['mbaro'])) {
     language: {
       url: "https://cdn.datatables.net/plug-ins/1.13.1/i18n/sq.json",
     },
-
+    stripeClasses: ['stripe-color']
   })
 </script>

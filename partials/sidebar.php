@@ -44,7 +44,7 @@
           <li class="nav-item"><a class="nav-link" href="klient2.php">Lista e klient&euml;ve tjer</a></li>
           <li class="nav-item"><a class="nav-link" href="kategorit.php">Lista e kategorive</a></li>
           <li class="nav-item"><a class="nav-link" href="ads.php">Llogaritë e ADS</a></li>
-          <li class="nav-item"><a class="nav-link" href="emails.php">Email list</a></li>
+          <li class="nav-item"><a class="nav-link" href="emails.php">Lista e email-ave</a></li>
         </ul>
       </div>
     </li>
