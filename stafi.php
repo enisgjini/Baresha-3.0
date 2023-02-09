@@ -105,19 +105,6 @@
                         <th></th>
                       </tr>
                     </thead>
-                    <!-- <tfoot>
-                      <tr>
-                        <th>Emri & Mbiemri</th>
-                        <th>Adresa</th>
-                        <th>Nr.TEL</th>
-                        <th>Email Adresa</th>
-                        <th>P&euml;rdoruesi</th>
-
-                        <th>Authenticator</th>
-                        <th>Llogaria e bank&euml;s</th>
-                        <th></th>
-                      </tr>
-                    </tfoot> -->
                     <tbody>
                       <?php
                       $kueri = $conn->query("SELECT * FROM users ORDER BY id DESC");
