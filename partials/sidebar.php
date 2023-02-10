@@ -15,23 +15,19 @@
           <span class="menu-title">Logs</span>
         </a>
       </li>
-
       <li class="nav-item">
         <a class="nav-link" href="stafi.php">
           <i class="fi fi-rr-users-alt menu-icon pe-3"></i>
           <span class="menu-title">Stafi</span>
         </a>
       </li>
-
       <li class="nav-item">
         <a class="nav-link" href="takimet.php">
           <i class="fi fi-rr-video-camera-alt menu-icon pe-3"></i>
           <span class="menu-title">Takimet</span>
         </a>
       </li>
-
     <?php } ?>
-
     <li class="nav-item">
       <a class="nav-link" data-bs-toggle="collapse" href="#klienti" aria-expanded="false" aria-controls="klienti">
         <i class="fi fi-rr-handshake menu-icon pe-3"></i>
@@ -58,11 +54,9 @@
         <ul class="nav flex-column sub-menu">
           <li class="nav-item"><a class="nav-link" href="shtoy.php">Regjistro nj&euml; k&euml;ng&euml;</a></li>
           <li class="nav-item"><a class="nav-link" href="listang.php">Lista e k&euml;ng&euml;ve</a></li>
-
         </ul>
       </div>
     </li>
-
     <li class="nav-item">
       <a class="nav-link" data-bs-toggle="collapse" href="#tiketat" aria-expanded="false" aria-controls="tiketat">
         <i class="fi fi-rr-ticket menu-icon pe-3"></i>
@@ -76,7 +70,6 @@
         </ul>
       </div>
     </li>
-
     <li class="nav-item">
       <a class="nav-link" data-bs-toggle="collapse" href="#content" aria-expanded="false" aria-controls="content">
         <i class="fi fi-rr-photo-video menu-icon pe-3"></i>
@@ -90,8 +83,6 @@
         </ul>
       </div>
     </li>
-
-
     <?php if ($_SESSION['acc'] == '3') { ?>
       <li class="nav-item">
         <a class="nav-link" data-bs-toggle="collapse" href="#financat" aria-expanded="false" aria-controls="financat">
@@ -107,11 +98,10 @@
             <li class="nav-item"><a class="nav-link" href="shpenzimep.php">Shpenzimet Personale</a></li>
             <li class="nav-item"><a class="nav-link" href="faturat.php">Pagesat YouTube</a></li>
             <li class="nav-item"><a class="nav-link" href="pagesat.php">Pagesat e kryera</a></li>
-            <li class="nav-item"><a class="nav-link" href="faturat2.php">Platformat Tjera</a></li>
+            <li class="nav-item"><a class="nav-link" href="faturat2.php">Platformat tjera</a></li>
           </ul>
         </div>
       </li>
-
     <?php } ?>
     <?php if ($_SESSION['acc'] == '1') {
     ?>
@@ -133,18 +123,11 @@
           </ul>
         </div>
       </li>
-
     <?php } ?>
     <li class="nav-item">
       <a class="nav-link" href="filet.php">
         <i class="fi fi-rr-folders menu-icon pe-3"></i>
         <span class="menu-title">Dokumente Tjera</span>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="chatGPT.php">
-        <i class="fi fi-rr-file-ai menu-icon pe-3"></i>
-        <span class="menu-title">Chat GPT</span>
       </a>
     </li>
     <li class="nav-item">

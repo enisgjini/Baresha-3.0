@@ -4,7 +4,7 @@ $(document).ready(function () {
 
     function fetch_data() {
         var dataTables = $('#employeeList').DataTable({
-            responsive: true,
+            responsive: false,
             search: {
                 return: true,
             },
@@ -53,11 +53,7 @@ $(document).ready(function () {
             language: {
                 url: "https://cdn.datatables.net/plug-ins/1.13.1/i18n/sq.json",
             },
-
-
-
-
-
+            stripeClasses: ['stripe-color'],
             "processing": false,
             "serverSide": true,
             "order": [],
