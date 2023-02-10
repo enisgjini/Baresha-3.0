@@ -172,6 +172,5 @@ if (isset($_GET['del'])) {
             url: "https://cdn.datatables.net/plug-ins/1.13.1/i18n/sq.json",
         },
         stripeClasses: ['stripe-color'],
-        deferRender: true
     })
 </script>
