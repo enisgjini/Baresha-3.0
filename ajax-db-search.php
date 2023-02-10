@@ -15,4 +15,3 @@ if (isset($_GET['term'])) {
     //return json res
     echo json_encode($res);
 }
-?>

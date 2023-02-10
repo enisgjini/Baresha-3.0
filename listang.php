@@ -25,12 +25,12 @@ if (isset($_GET['del'])) {
             <div class="container">
 
                 <div class="p-5 bg-light mb-4 card">
-                    <h4 class="font-weight-bold text-gray-800 mb-4">Lista e klientëve</h4> <!-- Breadcrumb -->
+                    <h4 class="font-weight-bold text-gray-800 mb-4">Lista e kengëve</h4> <!-- Breadcrumb -->
                     <nav class="d-flex">
                         <h6 class="mb-0">
-                            <a href="" class="text-reset">Klientët</a>
+                            <a href="" class="text-reset">Video - Ngarkimi</a>
                             <span>/</span>
-                            <a href="klient.php" class="text-reset" data-bs-placement="top" data-bs-toggle="tooltip" title="<?php echo __FILE__; ?>"><u>Lista e klientëve</u></a>
+                            <a href="klient.php" class="text-reset" data-bs-placement="top" data-bs-toggle="tooltip" title="<?php echo __FILE__; ?>"><u>Lista e kengëve</u></a>
                         </h6>
                     </nav>
                     <!-- Breadcrumb -->
@@ -40,8 +40,8 @@ if (isset($_GET['del'])) {
                         <div class="row">
                             <div class="col-12">
                                 <div class="table-responsive">
-                                    <table id="order-listing" data-ordering="false" class="table" width="100%" cellspacing="0">
-                                        <thead>
+                                    <table id="example" class="table w-100">
+                                        <thead class="bg-light">
                                             <tr>
                                                 <th>K&euml;ng&euml;tari</th>
                                                 <th>Emri</th>
@@ -64,27 +64,6 @@ if (isset($_GET['del'])) {
 
                                             </tr>
                                         </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>K&euml;ng&euml;tari</th>
-                                                <th>Emri</th>
-                                                <th>T.Shkruesi</th>
-                                                <th>Muzika</th>
-                                                <th>Orkesetra</th>
-                                                <th>C/O</th>
-                                                <th>FB</th>
-                                                <th>IG</th>
-                                                <th>Veper nga Koha</th>
-                                                <th>Klienti</th>
-                                                <th>Platformat Tjera</th>
-                                                <th style="color:green;">Linku</th>
-                                                <th style="color:green;">Linku Plat.</th>
-                                                <th>Data</th>
-                                                <th>Gjuha</th>
-                                                <th>Info Shtes</th>
-                                                <th>Postuar Nga</th>
-                                            </tr>
-                                        </tfoot>
                                         <tbody>
                                             <?php
                                             if (isset($_GET['id'])) {
@@ -142,7 +121,57 @@ if (isset($_GET['del'])) {
     </div>
 </div>
 <!-- End of Main Content -->
-<script src="js/tooltips.js"></script>
-<script src="js/popover.js"></script>
+<!-- <script src="js/tooltips.js"></script>
+<script src="js/popover.js"></script> -->
 
 <?php include 'partials/footer.php'; ?>
+
+
+<script>
+    $('#example').DataTable({
+        responsive: true,
+        search: {
+            return: true,
+        },
+        dom: 'Bfrtip',
+        buttons: [{
+            extend: 'pdfHtml5',
+            text: '<i class="fi fi-rr-file-pdf fa-lg"></i>&nbsp;&nbsp; PDF',
+            titleAttr: 'Eksporto tabelen ne formatin PDF',
+            className: 'btn btn-light border shadow-2 me-2'
+        }, {
+            extend: 'copyHtml5',
+            text: '<i class="fi fi-rr-copy fa-lg"></i>&nbsp;&nbsp; Kopjo',
+            titleAttr: 'Kopjo tabelen ne formatin Clipboard',
+            className: 'btn btn-light border shadow-2 me-2'
+        }, {
+            extend: 'excelHtml5',
+            text: '<i class="fi fi-rr-file-excel fa-lg"></i>&nbsp;&nbsp; Excel',
+            titleAttr: 'Eksporto tabelen ne formatin CSV',
+            className: 'btn btn-light border shadow-2 me-2'
+        }, {
+            extend: 'print',
+            text: '<i class="fi fi-rr-print fa-lg"></i>&nbsp;&nbsp; Printo',
+            titleAttr: 'Printo tabelën',
+            className: 'btn btn-light border shadow-2 me-2'
+        }, {
+            text: '<i class="fi fi-rr-user-add fa-lg"></i>&nbsp;&nbsp; Shto klientë',
+            className: 'btn btn-light border shadow-2 me-2',
+            action: function(e, node, config) {
+                window.location.href = 'shtok.php';
+            }
+        }, ],
+        initComplete: function() {
+            var btns = $('.dt-buttons');
+            btns.addClass('');
+            btns.removeClass('dt-buttons btn-group');
+
+        },
+        fixedHeader: true,
+        language: {
+            url: "https://cdn.datatables.net/plug-ins/1.13.1/i18n/sq.json",
+        },
+        stripeClasses: ['stripe-color'],
+        deferRender: true
+    })
+</script>

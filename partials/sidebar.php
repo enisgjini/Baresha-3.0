@@ -57,7 +57,7 @@
       <div class="collapse" id="video">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item"><a class="nav-link" href="shtoy.php">Regjistro nj&euml; k&euml;ng&euml;</a></li>
-          <li class="nav-item"><a class="nav-link" href="listang.php">Lista e K&euml;ng&euml;ve</a></li>
+          <li class="nav-item"><a class="nav-link" href="listang.php">Lista e k&euml;ng&euml;ve</a></li>
 
         </ul>
       </div>
