@@ -115,8 +115,8 @@
           </div>
         </div>
         <?php
-        $max = max($janar['sum'], $shkurt['sum'], $mars['sum'], $prill['sum']);
-        $min = min($janar['sum'], $shkurt['sum'], $mars['sum'], $prill['sum']);
+        $max = max($janarRezultatiShitjeve['sum'], $shkurtRezultatiShitjeve['sum'], $marsRezultatiShitjeve['sum'], $prillRezultatiShitjeve['sum']);
+        $min = min($janarRezultatiShitjeve['sum'], $shkurtRezultatiShitjeve['sum'], $marsRezultatiShitjeve['sum'], $prillRezultatiShitjeve['sum']);
         $dd = strtotime("-6 Months");
         $ggdata = date("Y-m-d", $dd);
 
@@ -151,66 +151,66 @@
                                       <div class="progress progress-md mx-4">
                                         <div class="progress-bar bg-success" role="progressbar" style="width: <?php
 
-                                                                                                              echo ($janar['sum'] * 100) / $max; ?>%" aria-valuenow="<?php echo $janar['sum']; ?>" aria-valuemin="??php echo $min; ??" aria-valuemin="??php echo $min; ??" aria-valuemin="<?php echo $min; ?>" aria-valuemax="<?php echo $max; ?>"></div>
+                                                                                                              echo ($janarRezultatiShitjeve['sum'] * 100) / $max; ?>%" aria-valuenow="<?php echo $janarRezultatiShitjeve['sum']; ?>" aria-valuemin="??php echo $min; ??" aria-valuemin="??php echo $min; ??" aria-valuemin="<?php echo $min; ?>" aria-valuemax="<?php echo $max; ?>"></div>
                                       </div>
                                     </td>
                                     <td>
-                                      <h5 class="font-weight-bold mb-0"><?php echo $janar['sum']; ?>&euro;</h5>
+                                      <h5 class="font-weight-bold mb-0"><?php echo $janarRezultatiShitjeve['sum']; ?>&euro;</h5>
                                     </td>
                                   </tr>
                                   <tr>
                                     <td class="text-muted">Shkurt</td>
                                     <td class="w-100 px-0">
                                       <div class="progress progress-md mx-4">
-                                        <div class="progress-bar bg-warning" role="progressbar" style="width: <?php echo ($shkurt['sum'] * 100) / $max; ?>%" aria-valuenow="<?php echo $shkurt['sum']; ?>" aria-valuemin="??php echo $min; ??" aria-valuemin="??php echo $min; ??" aria-valuemin="<?php echo $min; ?>" aria-valuemax="<?php echo $max; ?>"></div>
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: <?php echo ($shkurtRezultatiShitjeve['sum'] * 100) / $max; ?>%" aria-valuenow="<?php echo $shkurtRezultatiShitjeve['sum']; ?>" aria-valuemin="??php echo $min; ??" aria-valuemin="??php echo $min; ??" aria-valuemin="<?php echo $min; ?>" aria-valuemax="<?php echo $max; ?>"></div>
                                       </div>
                                     </td>
                                     <td>
-                                      <h5 class="font-weight-bold mb-0"><?php echo $shkurt['sum']; ?>&euro;</h5>
+                                      <h5 class="font-weight-bold mb-0"><?php echo $shkurtRezultatiShitjeve['sum']; ?>&euro;</h5>
                                     </td>
                                   </tr>
                                   <tr>
                                     <td class="text-muted">Mars</td>
                                     <td class="w-100 px-0">
                                       <div class="progress progress-md mx-4">
-                                        <div class="progress-bar bg-danger" role="progressbar" style="width: <?php echo ($mars['sum'] * 100) / $max; ?>%" aria-valuenow="<?php echo $mars['sum']; ?>" aria-valuemin="0" aria-valuemax="<?php echo $max; ?>"></div>
+                                        <div class="progress-bar bg-danger" role="progressbar" style="width: <?php echo ($marsRezultatiShitjeve['sum'] * 100) / $max; ?>%" aria-valuenow="<?php echo $marsRezultatiShitjeve['sum']; ?>" aria-valuemin="0" aria-valuemax="<?php echo $max; ?>"></div>
                                       </div>
                                     </td>
                                     <td>
-                                      <h5 class="font-weight-bold mb-0"><?php echo $mars['sum']; ?>&euro;</h5>
+                                      <h5 class="font-weight-bold mb-0"><?php echo $marsRezultatiShitjeve['sum']; ?>&euro;</h5>
                                     </td>
                                   </tr>
                                   <tr>
                                     <td class="text-muted">Prill</td>
                                     <td class="w-100 px-0">
                                       <div class="progress progress-md mx-4">
-                                        <div class="progress-bar bg-primary" role="progressbar" style="width: <?php echo ($prill['sum'] * 100) / $max; ?>%" aria-valuenow="<?php echo $prill['sum']; ?>" aria-valuemin="0" aria-valuemax="<?php echo $max; ?>"></div>
+                                        <div class="progress-bar bg-primary" role="progressbar" style="width: <?php echo ($prillRezultatiShitjeve['sum'] * 100) / $max; ?>%" aria-valuenow="<?php echo $prillRezultatiShitjeve['sum']; ?>" aria-valuemin="0" aria-valuemax="<?php echo $max; ?>"></div>
                                       </div>
                                     </td>
                                     <td>
-                                      <h5 class="font-weight-bold mb-0"><?php echo $prill['sum']; ?>&euro;</h5>
+                                      <h5 class="font-weight-bold mb-0"><?php echo $prillRezultatiShitjeve['sum']; ?>&euro;</h5>
                                     </td>
                                   </tr>
                                   <tr>
                                     <td class="text-muted">Maj</td>
                                     <td class="w-100 px-0">
                                       <div class="progress progress-md mx-4">
-                                        <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo ($maj['sum'] * 100) / $max; ?>%" aria-valuenow="<?php echo $maj['sum']; ?>" aria-valuemin="0" aria-valuemax="<?php echo $max; ?>"></div>
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo ($majRezultatiShitjeve['sum'] * 100) / $max; ?>%" aria-valuenow="<?php echo $majRezultatiShitjeve['sum']; ?>" aria-valuemin="0" aria-valuemax="<?php echo $max; ?>"></div>
                                       </div>
                                     </td>
                                     <td>
-                                      <h5 class="font-weight-bold mb-0"><?php echo $maj['sum']; ?>&euro;</h5>
+                                      <h5 class="font-weight-bold mb-0"><?php echo $majRezultatiShitjeve['sum']; ?>&euro;</h5>
                                     </td>
                                   </tr>
                                   <tr>
                                     <td class="text-muted">Qershor</td>
                                     <td class="w-100 px-0">
                                       <div class="progress progress-md mx-4">
-                                        <div class="progress-bar bg-danger" role="progressbar" style="width: <?php echo ($qersho['sum'] * 100) / $max; ?>%" aria-valuenow="<?php echo $qersho['sum']; ?>" aria-valuemin="0" aria-valuemax="<?php echo $max; ?>"></div>
+                                        <div class="progress-bar bg-danger" role="progressbar" style="width: <?php echo ($qershorRezultatiShitjeve['sum'] * 100) / $max; ?>%" aria-valuenow="<?php echo $qershorRezultatiShitjeve['sum']; ?>" aria-valuemin="0" aria-valuemax="<?php echo $max; ?>"></div>
                                       </div>
                                     </td>
                                     <td>
-                                      <h5 class="font-weight-bold mb-0"><?php echo $qersho['sum']; ?>&euro;</h5>
+                                      <h5 class="font-weight-bold mb-0"><?php echo $qershorRezultatiShitjeve['sum']; ?>&euro;</h5>
                                     </td>
                                   </tr>
                                 </table>
@@ -606,10 +606,28 @@ $v2021 = $conn->query("SELECT SUM(mbetja) AS sum FROM shitje WHERE data >= '2021
 $v21 = mysqli_fetch_array($v2021);
 $v2022 = $conn->query("SELECT SUM(mbetja) AS sum FROM shitje WHERE data >= '2022-01-01' AND data <= '2022-12-31'");
 $v22 = mysqli_fetch_array($v2022);
+$v2023 = $conn->query("SELECT SUM(mbetja) AS sum FROM shitje WHERE data >= '2023-01-01' AND data <= '2023-12-31'");
+$v23 = mysqli_fetch_array($v2023);
 ?>
 <script>
   let test = ["Janar", "Shkurt", "Mars", "Prill", "Maj", "Qershor", "Korrik", "Gusht", "Shtator", "Tetor", "Nentor", "Dhjetor"];
-  let datatm = [<?php echo $janar['sum']; ?>, <?php echo $shkurt['sum']; ?>, <?php echo $mars['sum']; ?>, <?php echo $prill['sum']; ?>, <?php echo $maj['sum']; ?>, <?php echo $qersho['sum']; ?>, <?php echo $korrik['sum']; ?>];
+  let datatm = [
+
+    <?php echo $janarRezultatiShitjeve['sum']; ?>,
+    <?php echo $shkurtRezultatiShitjeve['sum']; ?>,
+    <?php echo $marsRezultatiShitjeve['sum']; ?>,
+    <?php echo $prillRezultatiShitjeve['sum']; ?>,
+    <?php echo $majRezultatiShitjeve['sum']; ?>,
+    <?php echo $qershorRezultatiShitjeve['sum']; ?>,
+    <?php echo $korrikRezultatiShitjeve['sum']; ?>,
+    <?php echo $gushtRezultatiShitjeve['sum']; ?>,
+    <?php echo $shtatorRezultatiShitjeve['sum']; ?>,
+    <?php echo $tetorRezultatiShitjeve['sum']; ?>,
+    <?php echo $nentorRezultatiShitjeve['sum']; ?>,
+    <?php echo $dhjetorRezultatiShitjeve['sum']; ?>
+
+
+  ];
   let canvass = document.getElementById("salesreport");
   let thirdChart = new Chart(canvass, {
     type: "bar",
@@ -623,7 +641,20 @@ $v22 = mysqli_fetch_array($v2022);
         },
         {
           label: 'Mbetja',
-          data: [<?php echo $janarm['sum']; ?>, <?php echo $shkurtm['sum']; ?>, <?php echo $marsm['sum']; ?>, <?php echo $prillm['sum']; ?>, <?php echo $majm['sum']; ?>, <?php echo $qershor['sum']; ?>, <?php echo $korrikm['sum']; ?>],
+          data: [
+            <?php echo $janarRezultatiMbetjes['sum']; ?>,
+            <?php echo $shkurtRezultatiMbetjes['sum']; ?>,
+            <?php echo $marsRezultatiMbetjes['sum']; ?>,
+            <?php echo $prillRezultatiMbetjes['sum']; ?>,
+            <?php echo $majRezultatiMbetjes['sum']; ?>,
+            <?php echo $qershorRezultatiMbetjes['sum']; ?>,
+            <?php echo $korrikRezultatiMbetjes['sum']; ?>,
+            <?php echo $gushtRezultatiMbetjes['sum']; ?>,
+            <?php echo $shtatorRezultatiMbetjes['sum']; ?>,
+            <?php echo $tetorRezultatiMbetjes['sum']; ?>,
+            <?php echo $nentorRezultatiMbetjes['sum']; ?>,
+            <?php echo $dhjetorRezultatiMbetjes['sum']; ?>
+          ],
           backgroundColor: '#f5a623'
         }
       ]
@@ -655,13 +686,33 @@ $v22 = mysqli_fetch_array($v2022);
         },
         {
           label: 'Mbetja',
-          data: [<?php echo $janarm['sum']; ?>, <?php echo $shkurtm['sum']; ?>, <?php echo $marsm['sum']; ?>, <?php echo $prillm['sum']; ?>],
+          data: [
+            <?php echo $janarRezultatiMbetjes['sum']; ?>,
+            <?php echo $shkurtRezultatiMbetjes['sum']; ?>,
+            <?php echo $marsRezultatiMbetjes['sum']; ?>,
+            <?php echo $prillRezultatiMbetjes['sum']; ?>,
+            <?php echo $majRezultatiMbetjes['sum']; ?>,
+            <?php echo $qershorRezultatiMbetjes['sum']; ?>,
+            <?php echo $korrikRezultatiMbetjes['sum']; ?>,
+            <?php echo $gushtRezultatiMbetjes['sum']; ?>,
+            <?php echo $shtatorRezultatiMbetjes['sum']; ?>,
+            <?php echo $tetorRezultatiMbetjes['sum']; ?>,
+            <?php echo $nentorRezultatiMbetjes['sum']; ?>,
+            <?php echo $dhjetorRezultatiMbetjes['sum']; ?>
+          ],
           backgroundColor: '#000000'
         }
       ]
-
     },
     options: {
+      scales: {
+        y: {
+          type: 'linear',
+          ticks: {
+            stepSize: 10
+          }
+        }
+      },
       plugins: {
         legend: {
           title: {
@@ -676,10 +727,39 @@ $v22 = mysqli_fetch_array($v2022);
 
 
 <script>
-  let coins = ["2021", "2022"];
-  let marketCap = [<?php echo $v21['sum']; ?>, <?php echo $v22['sum']; ?>];
-  let canvas = document.getElementById("north-america-chart");
-  let firstChart = new Chart(canvas, {
+  // let coins = ["2021", "2022"];
+  // let marketCap = [<?php echo $v21['sum']; ?>, <?php echo $v22['sum']; ?>];
+  // let canvas = document.getElementById("north-america-chart");
+  // let firstChart = new Chart(canvas, {
+  //   type: "doughnut",
+  //   data: {
+  //     labels: coins,
+  //     datasets: [{
+  //       label: "Coin",
+  //       data: marketCap,
+  //       backgroundColor: ["#fc0303", "#347deb"],
+  //       borderColor: ["#fc0303", "#347deb"]
+  //     }]
+  //   },
+  //   options: {
+  //     plugins: {
+  //       legend: {
+  //         title: {
+  //           display: true,
+  //           text: "Fitimet e vitit 2021 - 2022"
+  //         }
+  //       }
+  //     }
+  //   }
+  // });
+
+
+  const coins = ["2021", "2022", "2023"];
+  const marketCap = [<?php echo $v21['sum']; ?>, <?php echo $v22['sum']; ?>, <?php echo $v23['sum']; ?>];
+  const canvas = document.getElementById("north-america-chart");
+
+  const ctx = canvas.getContext("2d");
+  const firstChart = new Chart(ctx, {
     type: "doughnut",
     data: {
       labels: coins,
@@ -691,14 +771,27 @@ $v22 = mysqli_fetch_array($v2022);
       }]
     },
     options: {
-      plugins: {
-        legend: {
-          title: {
-            display: true,
-            text: "Fitimet e vitit 2021 - 2022"
-          }
+      legend: {
+        display: true,
+        position: "top",
+        labels: {
+          fontColor: "#333",
+          fontSize: 16
+        }
+      },
+      animation: {
+        duration: 1000,
+        easing: "easeOutQuart"
+      },
+      elements: {
+        arc: {
+          borderWidth: 2
         }
       }
     }
   });
+
+  setTimeout(() => {
+    firstChart.update();
+  }, 2000);
 </script>

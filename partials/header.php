@@ -126,6 +126,7 @@ $mes2 = mysqli_num_rows($mes);
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
 
