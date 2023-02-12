@@ -1,4 +1,4 @@
-<?php include "./partials/sales.php" ?>
+<?php include "./partials/sales.php"?>
 <div class="main-panel">
   <div class="content-wrapper">
     <div class="container-fluid">
@@ -80,9 +80,9 @@
             <div class="card">
               <div class="card-body">
                 <?php
-                $gc = $conn->query("SELECT * FROM ngarkimi");
-                $ngc = mysqli_num_rows($gc);
-                ?>
+$gc = $conn->query("SELECT * FROM ngarkimi");
+$ngc = mysqli_num_rows($gc);
+?>
                 <p class="fw-bold text-md-left text-xl-left">Numri i ngarkim&euml;ve</p>
                 <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
                   <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0"><?php echo $ngc; ?></h3>
@@ -115,14 +115,14 @@
           </div>
         </div>
         <?php
-        $max = max($janarRezultatiShitjeve['sum'], $shkurtRezultatiShitjeve['sum'], $marsRezultatiShitjeve['sum'], $prillRezultatiShitjeve['sum']);
-        $min = min($janarRezultatiShitjeve['sum'], $shkurtRezultatiShitjeve['sum'], $marsRezultatiShitjeve['sum'], $prillRezultatiShitjeve['sum']);
-        $dd = strtotime("-6 Months");
-        $ggdata = date("Y-m-d", $dd);
+$max = max($janarRezultatiShitjeve['sum'], $shkurtRezultatiShitjeve['sum'], $marsRezultatiShitjeve['sum'], $prillRezultatiShitjeve['sum']);
+$min = min($janarRezultatiShitjeve['sum'], $shkurtRezultatiShitjeve['sum'], $marsRezultatiShitjeve['sum'], $prillRezultatiShitjeve['sum']);
+$dd = strtotime("-6 Months");
+$ggdata = date("Y-m-d", $dd);
 
-        $mp6 = $conn->query("SELECT SUM(klientit) AS sum FROM shitje WHERE data >= '$ggdata' AND data <= '$dataAktuale'");
-        $m6 = mysqli_fetch_array($mp6);
-        ?>
+$mp6 = $conn->query("SELECT SUM(klientit) AS sum FROM shitje WHERE data >= '$ggdata' AND data <= '$dataAktuale'");
+$m6 = mysqli_fetch_array($mp6);
+?>
         <div class="row">
           <div class="col-md-12 grid-margin stretch-card">
             <div class="card position-relative">
@@ -151,7 +151,7 @@
                                       <div class="progress progress-md mx-4">
                                         <div class="progress-bar bg-success" role="progressbar" style="width: <?php
 
-                                                                                                              echo ($janarRezultatiShitjeve['sum'] * 100) / $max; ?>%" aria-valuenow="<?php echo $janarRezultatiShitjeve['sum']; ?>" aria-valuemin="??php echo $min; ??" aria-valuemin="??php echo $min; ??" aria-valuemin="<?php echo $min; ?>" aria-valuemax="<?php echo $max; ?>"></div>
+echo ($janarRezultatiShitjeve['sum'] * 100) / $max; ?>%" aria-valuenow="<?php echo $janarRezultatiShitjeve['sum']; ?>" aria-valuemin="??php echo $min; ??" aria-valuemin="??php echo $min; ??" aria-valuemin="<?php echo $min; ?>" aria-valuemax="<?php echo $max; ?>"></div>
                                       </div>
                                     </td>
                                     <td>
@@ -238,13 +238,13 @@
 
         <?php
 
-        $api_key = "AIzaSyBrE0kFGTQJwn36FeR4NIyf4FEw2HqSSIQ";
-        $apiu = file_get_contents('https://www.googleapis.com/youtube/v3/channels?part=snippet&id=UCV6ZBT0ZUfNbtZMbsy-L3CQ&key=' . $api_key);
-        $apid = json_decode($apiu, true);
+$api_key = "AIzaSyBrE0kFGTQJwn36FeR4NIyf4FEw2HqSSIQ";
+$apiu = file_get_contents('https://www.googleapis.com/youtube/v3/channels?part=snippet&id=UCV6ZBT0ZUfNbtZMbsy-L3CQ&key=' . $api_key);
+$apid = json_decode($apiu, true);
 
-        $aa = file_get_contents('https://www.googleapis.com/youtube/v3/channels?part=statistics&id=UCV6ZBT0ZUfNbtZMbsy-L3CQ&key=' . $api_key);
-        $aaa = json_decode($aa, true);
-        ?>
+$aa = file_get_contents('https://www.googleapis.com/youtube/v3/channels?part=statistics&id=UCV6ZBT0ZUfNbtZMbsy-L3CQ&key=' . $api_key);
+$aaa = json_decode($aa, true);
+?>
         <div class="row">
           <div class="col-md-12 grid-margin">
             <div class="card bg-primary border-0 position-relative">
@@ -282,7 +282,6 @@
                                 <h3 class="font-weight-light me-2 mb-1">Shikime</h3>
                                 <h3 class="mb-0"><?php echo number_format($aaa['items'][0]['statistics']['viewCount'], 2, '.', ','); ?></h3>
                               </div>
-
                               <p class="text-white font-weight-light pr-lg-2 pr-xl-5">Numri total i shikimeve n&euml;
                                 kanalin <?php echo $apid['items'][0]['snippet']['title']; ?> &euml;sht&euml; <?php echo number_format($aaa['items'][0]['statistics']['viewCount'], 2, '.', ','); ?></p>
                             </div>
@@ -306,10 +305,7 @@
                         </div>
                       </div>
                     </div>
-
-
                   </div>
-
                 </div>
               </div>
             </div>
@@ -321,7 +317,6 @@
               <div class="card-body">
                 <p class="fw-bold">Pagesat e platformave</p>
                 <p class="text-muted font-weight-light">Grafiku i pagesave dhe fitimeve nga platformat</p>
-
                 <canvas id="orderichart"></canvas>
               </div>
             </div>
@@ -372,27 +367,27 @@
                     </thead>
                     <tbody>
                       <?php
-                      ini_set('display_errors', 0);
-                      $most = $conn->query("SELECT * FROM klientet ORDER BY subscribers DESC LIMIT 20");
-                      while ($res = mysqli_fetch_array($most)) {
-                        $kengtaid = $res['id'];
-                        $merrpagesenefundit = $conn->query("SELECT * FROM fatura WHERE emri='$kengtaid' ORDER BY id DESC");
-                        $mpf = mysqli_fetch_array($merrpagesenefundit);
-                        $mft = $mpf['fatura'];
-                        $lastpay1 = $conn->query("SELECT SUM(shuma) AS sumc FROM pagesat WHERE fatura='$mft'");
-                        $lastpay = mysqli_fetch_array($lastpay1);
-                        $sqlja = $conn->query("SELECT * FROM fatura WHERE emri='$kengtaid'");
-                        $totalii = 0;
-                        while ($sqlja2 = mysqli_fetch_array($sqlja)) {
-                          $fatli = $sqlja2['fatura'];
-                          $getsum = $conn->query("SELECT SUM(klientit) as total FROM shitje WHERE fatura='$fatli'");
-                          $rowit = mysqli_fetch_array($getsum);
-                          $totalii += $rowit['total'];
-                        }
-                        if (empty($totalii)) {
-                          $totalii = "0.00";
-                        }
-                      ?>
+ini_set('display_errors', 0);
+$most = $conn->query("SELECT * FROM klientet ORDER BY subscribers DESC LIMIT 20");
+while ($res = mysqli_fetch_array($most)) {
+    $kengtaid = $res['id'];
+    $merrpagesenefundit = $conn->query("SELECT * FROM fatura WHERE emri='$kengtaid' ORDER BY id DESC");
+    $mpf = mysqli_fetch_array($merrpagesenefundit);
+    $mft = $mpf['fatura'];
+    $lastpay1 = $conn->query("SELECT SUM(shuma) AS sumc FROM pagesat WHERE fatura='$mft'");
+    $lastpay = mysqli_fetch_array($lastpay1);
+    $sqlja = $conn->query("SELECT * FROM fatura WHERE emri='$kengtaid'");
+    $totalii = 0;
+    while ($sqlja2 = mysqli_fetch_array($sqlja)) {
+        $fatli = $sqlja2['fatura'];
+        $getsum = $conn->query("SELECT SUM(klientit) as total FROM shitje WHERE fatura='$fatli'");
+        $rowit = mysqli_fetch_array($getsum);
+        $totalii += $rowit['total'];
+    }
+    if (empty($totalii)) {
+        $totalii = "0.00";
+    }
+    ?>
                         <tr>
                           <td><b><?php echo $res['emri']; ?></b></td>
                           <td><b><?php echo $res['subscribers']; ?></b></td>
@@ -400,8 +395,8 @@
                           <td><b><?php echo $totalii; ?>&euro;</b></td>
                         </tr>
                       <?php
-                      }
-                      ?>
+}
+?>
 
 
 
@@ -430,15 +425,15 @@
                     </thead>
                     <tbody>
                       <?php
-                      $kueri = $conn->query("SELECT * FROM ngarkimi WHERE klienti='197' ORDER BY id DESC LIMIT 7");
-                      while ($row = mysqli_fetch_array($kueri)) {
-                      ?>
+$kueri = $conn->query("SELECT * FROM ngarkimi WHERE klienti='197' ORDER BY id DESC LIMIT 7");
+while ($row = mysqli_fetch_array($kueri)) {
+    ?>
                         <tr>
                           <td class="text-muted ps-0"><?php echo $row['emri']; ?></td>
                           <td class="text-muted"> <?php echo $row['platforma']; ?></td>
                           <td class="text-muted"><?php echo $row['data']; ?></td>
                         </tr>
-                      <?php } ?>
+                      <?php }?>
                     </tbody>
                   </table>
                 </div>
@@ -451,44 +446,7 @@
                 <div class="card">
                   <div class="card-body">
                     <p class="fw-bold">Charts</p>
-                    <div class="charts-data">
-                      <div class="mt-3">
-                        <p class="text-muted mb-0">Orders</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                          <div class="progress progress-md flex-grow-1 me-4">
-                            <div class="progress-bar bg-success" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                          <p class="text-muted mb-0">5k</p>
-                        </div>
-                      </div>
-                      <div class="mt-3">
-                        <p class="text-muted mb-0">Users</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                          <div class="progress progress-md flex-grow-1 me-4">
-                            <div class="progress-bar bg-success" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                          <p class="text-muted mb-0">3k</p>
-                        </div>
-                      </div>
-                      <div class="mt-3">
-                        <p class="text-muted mb-0">Downloads</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                          <div class="progress progress-md flex-grow-1 me-4">
-                            <div class="progress-bar bg-success" role="progressbar" style="width: 48%" aria-valuenow="48" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                          <p class="text-muted mb-0">992</p>
-                        </div>
-                      </div>
-                      <div class="mt-3">
-                        <p class="text-muted mb-0">Visitors</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                          <div class="progress progress-md flex-grow-1 me-4">
-                            <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                          <p class="text-muted mb-0">687</p>
-                        </div>
-                      </div>
-                    </div>
+                    <canvas id="charts"></canvas>
                   </div>
                 </div>
               </div>
@@ -518,16 +476,16 @@
                 <ul class="icon-data-list">
                   <?php
 
-                  $merri = $conn->query("SELECT * FROM logs ORDER BY id DESC LIMIT 5");
-                  while ($k = mysqli_fetch_array($merri)) {
-                  ?>
+$merri = $conn->query("SELECT * FROM logs ORDER BY id DESC LIMIT 5");
+while ($k = mysqli_fetch_array($merri)) {
+    ?>
                     <li>
                       <p class="text-primary mb-1"><?php echo $k['stafi']; ?></p>
                       <p class="text-muted"><?php echo $k['ndryshimi']; ?></p>
                       <small class="text-muted"><?php echo $k['koha']; ?></small>
                     </li>
 
-                  <?php } ?>
+                  <?php }?>
                 </ul>
               </div>
             </div>
@@ -539,7 +497,6 @@
 </div>
 
 <?php
-
 
 $v2021 = $conn->query("SELECT SUM(mbetja) AS sum FROM shitje WHERE data >= '2021-01-01' AND data <= '2021-12-31'");
 $v21 = mysqli_fetch_array($v2021);
@@ -698,7 +655,7 @@ $v23 = mysqli_fetch_array($v2023);
   const marketCap = [<?php echo $v21['sum']; ?>, <?php echo $v22['sum']; ?>, <?php echo $v23['sum']; ?>];
   const canvas = document.getElementById("north-america-chart");
 
-  const ctx = canvas.getContext("2d");
+  var ctx = canvas.getContext("2d");
   const firstChart = new Chart(ctx, {
     type: "doughnut",
     data: {
@@ -734,4 +691,69 @@ $v23 = mysqli_fetch_array($v2023);
   setTimeout(() => {
     firstChart.update();
   }, 2000);
+</script>
+
+
+
+<?php
+$kueri = $conn->query("SELECT COUNT(*) as count FROM klientet where monetizuar = 'PO'");
+$klientetEMonetizuar = mysqli_fetch_array($kueri);
+
+$kueri2 = $conn->query("SELECT COUNT(*) as count FROM klientet where monetizuar = 'JO'");
+$klientetEPamonetizuar = mysqli_fetch_array($kueri2);
+
+$labels = array('Monetizuar', 'Pamonetizuar');
+$data = array($klientetEMonetizuar['count'], $klientetEPamonetizuar['count']);
+
+?>
+
+<script>
+
+const charts = document.getElementById("charts");
+
+var ctx2 = charts.getContext("2d");
+
+var data = {
+  labels: <?php echo json_encode($labels); ?>,
+  datasets: [
+    {
+      label: 'Klientet',
+      data: <?php echo json_encode($data); ?>,
+      backgroundColor: ['#36A2EB', '#FF6384']
+    }
+  ]
+};
+var myChart = new Chart(ctx2, {
+  type: 'pie',
+  data: data,
+  options: {
+    responsive: true,
+    legend: {
+        display: true,
+        position: "top",
+        labels: {
+          fontColor: "#333",
+          fontSize: 16
+        }
+      },
+      animation: {
+        duration: 1000,
+        easing: "easeOutQuart"
+      },
+      elements: {
+        arc: {
+          borderWidth: 2
+        }
+      },
+    plugins: {
+        legend: {
+          title: {
+            display: true,
+            text: "Klientet e monetizuar dhe te pamonetizuar"
+          }
+        }
+      }
+  }
+});
+
 </script>
