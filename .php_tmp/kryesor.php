@@ -334,7 +334,7 @@
                 <div id="sales-legend" class="chartjs-legend mt-4 mb-2"></div>
                 <canvas id="salesreport"></canvas>
               </div>
-              <div class="card border-right-0 border-left-0 border-bottom-0">
+              <!-- <div class="card border-right-0 border-left-0 border-bottom-0">
                 <div class="d-flex justify-content-center justify-content-md-end">
                   <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
                     <button class="btn btn-lg btn-outline-light dropdown-toggle rounded-0 border-top-0 border-bottom-0" type="button" id="dropdownMenuDate2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -349,18 +349,18 @@
                   </div>
                   <button class="btn btn-lg btn-outline-light text-primary rounded-0 border-0 d-none d-md-block" type="button"> View all </button>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
         <div class="row">
-          <div class="col-md-7 grid-margin stretch-card">
+          <div class="col-md-12 grid-margin stretch-card">
             <div class="card">
               <div class="card-body">
-                <p class="fw-bold mb-0">Top 20 Users with most subscribers</p>
+                <p class="fw-bold mb-3">20 përdoruesit më të mirë me shumicën e abonentëve</p>
                 <div class="table-responsive">
-                  <table class="table table-striped table-borderless">
-                    <thead>
+                  <table class="table border ">
+                    <thead class="table-light">
                       <tr>
                         <th>Artisti</th>
 
@@ -372,6 +372,7 @@
                     </thead>
                     <tbody>
                       <?php
+                      ini_set('display_errors', 0);
                       $most = $conn->query("SELECT * FROM klientet ORDER BY subscribers DESC LIMIT 20");
                       while ($res = mysqli_fetch_array($most)) {
                         $kengtaid = $res['id'];
@@ -381,23 +382,19 @@
                         $lastpay1 = $conn->query("SELECT SUM(shuma) AS sumc FROM pagesat WHERE fatura='$mft'");
                         $lastpay = mysqli_fetch_array($lastpay1);
                         $sqlja = $conn->query("SELECT * FROM fatura WHERE emri='$kengtaid'");
+                        $totalii = 0;
                         while ($sqlja2 = mysqli_fetch_array($sqlja)) {
                           $fatli = $sqlja2['fatura'];
-
                           $getsum = $conn->query("SELECT SUM(klientit) as total FROM shitje WHERE fatura='$fatli'");
-
                           $rowit = mysqli_fetch_array($getsum);
-
                           $totalii += $rowit['total'];
                         }
                         if (empty($totalii)) {
-                          $totalii += "0.00";
+                          $totalii = "0.00";
                         }
-
                       ?>
                         <tr>
                           <td><b><?php echo $res['emri']; ?></b></td>
-
                           <td><b><?php echo $res['subscribers']; ?></b></td>
                           <td><b><?php echo $lastpay['sumc']; ?>&euro;</b></td>
                           <td><b><?php echo $totalii; ?>&euro;</b></td>
@@ -406,6 +403,8 @@
                       }
                       ?>
 
+
+
                     </tbody>
                   </table>
                 </div>
@@ -413,66 +412,6 @@
             </div>
           </div>
 
-          <div class="col-md-5 grid-margin stretch-card mt-5">
-            <div class="card">
-              <div class="card-body">
-                <h4 class="fw-bold">To Do Lists</h4>
-                <div class="list-wrapper pt-2">
-                  <ul class="d-flex flex-column-reverse todo-list todo-list-custom">
-                    <li>
-                      <div class="form-check form-check-flat">
-                        <label class="form-check-label">
-                          <input class="checkbox" type="checkbox">
-                          Meeting with Urban Team
-                        </label>
-                      </div>
-                      <i class="remove ti-close"></i>
-                    </li>
-                    <li class="completed">
-                      <div class="form-check form-check-flat">
-                        <label class="form-check-label">
-                          <input class="checkbox" type="checkbox" checked>
-                          Duplicate a project for new customer
-                        </label>
-                      </div>
-                      <i class="remove ti-close"></i>
-                    </li>
-                    <li>
-                      <div class="form-check form-check-flat">
-                        <label class="form-check-label">
-                          <input class="checkbox" type="checkbox">
-                          Project meeting with CEO
-                        </label>
-                      </div>
-                      <i class="remove ti-close"></i>
-                    </li>
-                    <li class="completed">
-                      <div class="form-check form-check-flat">
-                        <label class="form-check-label">
-                          <input class="checkbox" type="checkbox" checked>
-                          Follow up of team zilla
-                        </label>
-                      </div>
-                      <i class="remove ti-close"></i>
-                    </li>
-                    <li>
-                      <div class="form-check form-check-flat">
-                        <label class="form-check-label">
-                          <input class="checkbox" type="checkbox">
-                          Level up for Antony
-                        </label>
-                      </div>
-                      <i class="remove ti-close"></i>
-                    </li>
-                  </ul>
-                </div>
-                <div class="add-items d-flex mb-0 mt-2">
-                  <input type="text" class="form-control todo-list-input" placeholder="Add new task">
-                  <button class="add btn btn-icon text-primary todo-list-add-btn bg-transparent"><i class="ti-location-arrow"></i></button>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
         <div class="row">
           <div class="col-md-4 stretch-card grid-margin grid-margin-md-0">
@@ -480,7 +419,7 @@
               <div class="card-body">
                 <p class="fw-bold mb-0">Ngarkimet n&euml; Baresha</p>
                 <div class="table-responsive">
-                  <table class="table table-borderless">
+                  <table class="table">
                     <thead>
                       <tr>
                         <th class="ps-0 border-bottom">K&euml;nga</th>
@@ -681,8 +620,8 @@ $v23 = mysqli_fetch_array($v2023);
       datasets: [{
           label: "Pagesa Klienteve",
           data: datatm,
-          backgroundColor: '#ff0000',
-          borderColor: '#ff0000'
+          backgroundColor: 'rgba(62, 149, 205, 0.2)',
+          borderColor: 'rgba(62, 149, 205, 1)'
         },
         {
           label: 'Mbetja',
@@ -700,7 +639,8 @@ $v23 = mysqli_fetch_array($v2023);
             <?php echo $nentorRezultatiMbetjes['sum']; ?>,
             <?php echo $dhjetorRezultatiMbetjes['sum']; ?>
           ],
-          backgroundColor: '#000000'
+          backgroundColor: 'rgba(237, 85, 101, 0.2)',
+          borderColor: 'rgba(237, 85, 101, 1)'
         }
       ]
     },
